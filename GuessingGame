@@ -1,0 +1,35 @@
+import random
+def guess(numPlayers):
+    
+            
+    start = 0
+    end = 101
+    answer = {}
+    
+    for i in range(numPlayers):
+        answer[i] =  random.randint(start,end)
+    while True:
+     for i in range(numPlayers):
+        print(f"Player {i+1},s turn")
+        try:
+            player = int(input(f"Player{i+1} Guess a number(1-100)"))
+        except ValueError:
+            print("Please input only numbers")
+            continue
+        if player == answer[i]:
+               print(f"Congratulations Player{i+1}, you guessed correctly")
+               return
+        elif player < answer[i]:
+                print("boo hoo you guessed too low")
+        else:
+                player > answer[i]
+                print("it is a little too high")
+        
+        
+while True:
+    players = int(input("How many players(1-5):"))
+    if 1<= players <= 5:
+        guess(players)
+    else:
+        print("Please input a number (1-5)")
+    

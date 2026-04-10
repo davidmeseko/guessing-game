@@ -1,0 +1,55 @@
+
+bills = []
+def tip():
+    try:
+        while True:
+            bill_amount = int(input("How much is your'e bill : "))
+            tip_amount = input(" how much would you like to tip (20,40,60,custom)% : ").lower()
+            tip_amount = tip_amount.replace("%", "")
+            if tip_amount == "20":
+                tip_1 = bill_amount * 0.20
+                bill_1 = bill_amount + tip_1
+                print(f"Youre total bill is {bill_1}$")
+                bills.append(bill_1)
+                break
+            elif tip_amount == "40":
+                tip_2 = bill_amount * 0.40
+                bill_2 = bill_amount + tip_2
+                print(f"Youre total bill is {bill_2}$")
+                bills.append(bill_2)
+                break
+            elif tip_amount == "60":
+                tip_3 = bill_amount * 0.60
+                bill_3 = bill_amount + tip_3
+                print(f"Youre total bill is {bill_3}$")
+                bills.append(bill_3)
+                break
+            elif tip_amount == "custom":
+                custom_tip = input("How much will you like to tip(%) : ")
+                tip_percent = float(custom_tip)
+                tip_4 = bill_amount * (tip_percent/100)
+                bill_4 = bill_amount + tip_4
+                print(f"Youre total bill is {bill_4}$")
+                bills.append(bill_4)
+                break
+            else:
+                print("Please use only numbers aand %(e.g 30%, 20%)")
+                break
+        return True
+    except:
+        return False
+
+while True:
+    total_people = int(input("How many people are splitting : "))
+    if total_people == 1:
+        tip()
+    elif total_people != 1:
+        tip() 
+        per_person = bills[0] / total_people 
+        print(f"Each person pays {per_person}")
+    else:
+        print("Invalid input")
+
+            
+            
+    

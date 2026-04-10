@@ -1,0 +1,47 @@
+
+task = []
+def to_do_list():
+    while True:
+        user = input("Welcome! would you like to (add,view,view all,remove,quit) a task :").lower()
+        if user == "add":
+            taskName = input("Name your task :")
+            one = input("describe your task:")
+            task.append(f"{taskName}: {one}")
+            continue
+        elif user == "view":
+                taskName2 = input("What is your tasks name :")
+                found = False
+                for item in task:
+                    if taskName2 in item:
+                        print(item)
+                        found = True
+                        break
+                    if not found:
+                        continue
+                    else:
+                        print("no such task exists")
+                continue
+        elif user == "view all":
+            if len(task) == 0:
+                print("No tasks yet!")
+            else:
+                for item in task:
+                    print(item)
+        elif user == "remove":
+            name2 = input("What is the name of the task you wish to remove ")
+            if name2 in task:
+                task.remove(name2)
+                print(f"{name2} has been removed from your tasks")
+            continue
+        elif user == "quit":
+            print("Goodbye!")
+            break
+        else:
+            print("Invalid input")
+to_do_list()
+    
+            
+             
+
+
+    
