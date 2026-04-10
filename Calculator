@@ -1,0 +1,55 @@
+history = []
+def calculate():
+    try:
+        user1 = float(input("Enter a number:"))
+        user2 = float(input("Enter a number:"))
+    except ValueError:
+        print("Invalid parameter")
+        exit()
+    operations = input("What operator do you want to use (+,/,-,%,*):")
+    decimal = int(input("How many decimal places? (0-5):"))
+    if decimal > 5 or decimal<0:
+        print("Please input a number between 0 and 5 only")
+        exit()
+    if operations == "+":
+        result = user1+user2
+        print("=",round(result,decimal ))
+        history.append(f"{user1}{operations}{user2} = {round(result,decimal)}")
+    elif operations == "-":
+        result = user1-user2
+        print("=",round(result,decimal))
+        history.append(f"{user1}{operations}{user2} = {round(result,decimal)}")
+    elif operations == "/":
+        if user2 == 0:
+            print("cannot divide by zero")
+        else:
+            result = user1/user2
+            print("=",round(result,decimal))
+            history.append(f"{user1}{operations}{user2} = {round(result,decimal)}")
+    elif operations == "*":
+        result = user1*user2
+        print("=",round(result,decimal))
+        history.append(f"{user1}{operations}{user2} = {round(result,decimal)}")
+    elif operations == "%":
+        result = user1%user2
+        print("=",round(result,decimal))
+        history.append(f"{user1}{operations}{user2} = {round(result,decimal)}")
+    else:
+        print("invalid parameter")
+while True:
+    answer = input("Do you want to calculate, see history or quit (yes/history/quit):").lower()
+    if answer == "quit":
+        print("Goodbye!")
+        break
+    elif answer == "yes":
+        calculate()
+    elif answer == "history":
+        if len(history) == 0:
+            print("No History")
+        else:
+            for item in history:
+                print(item)
+    else:
+        print("Please input yes or quit")
+
+    
